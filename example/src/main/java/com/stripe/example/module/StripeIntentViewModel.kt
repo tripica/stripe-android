@@ -13,7 +13,7 @@ import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.HttpException
 
-internal class StripeIntentViewModel(
+internal open class StripeIntentViewModel(
     application: Application
 ) : BaseViewModel(application) {
     val inProgress = MutableLiveData<Boolean>()
@@ -23,13 +23,18 @@ internal class StripeIntentViewModel(
     val setupIntentResultLiveData = MutableLiveData<Result<SetupIntentResult>>()
 
     fun createPaymentIntent(
-        country: String
+        country: String,
+        customerId: String? = null
     ) = makeBackendRequest(
         R.string.creating_payment_intent,
         R.string.payment_intent_status
     ) {
         backendApi.createPaymentIntent(
-            mutableMapOf("country" to country)
+            mutableMapOf("country" to country).also { map ->
+                customerId?.let {
+                    map["customer_id"] = it
+                }
+            }
         )
     }
 

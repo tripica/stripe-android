@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.activity.ComponentActivity
 import com.stripe.android.paymentsheet.model.PaymentOption
 
-internal interface PaymentSheetFlowController {
+interface PaymentSheetFlowController {
 
     fun presentPaymentOptions(
         activity: ComponentActivity,
