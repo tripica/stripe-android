@@ -86,7 +86,7 @@ public final class Card extends StripeModel implements StripePaymentSource {
         "223", "224", "225", "226", "227", "228", "229",
         "23", "24", "25", "26",
         "270", "271", "2720",
-        "50", "51", "52", "53", "54", "55", "67"
+        "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "67"
     };
     public static final String[] PREFIXES_UNIONPAY = {"62"};
 
